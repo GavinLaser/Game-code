@@ -1,0 +1,31 @@
+class Enemy_movement : ZilchComponent
+{
+    var Time : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Time +=1;
+        if(this.Time == 50)
+        {
+            var random = new Random();
+            var chance = random.DieRoll(100);
+            if (chance >75)
+            {
+            var temp = this.Owner.Transform.Translation;
+            temp.X +=-5;
+            this.Owner.Transform.Translation =temp;
+            }
+            else if (chance <25)
+            {
+            var temp2 = this.Owner.Transform.Translation;
+            temp2.X +=5;
+            this.Owner.Transform.Translation =temp2;
+            }
+            this.Time = 0;
+        }
+    }
+}

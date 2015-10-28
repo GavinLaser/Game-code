@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "Ships and Lasers",
+	uint64 LibraryId = 560579744de74b0d,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

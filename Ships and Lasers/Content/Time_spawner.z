@@ -1,0 +1,25 @@
+class Time_spawner : ZilchComponent
+{
+    var Time : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Time +=1;
+        if(this.Time == 150)
+        {
+            var random = new Random();
+            var chance = random.DieRoll(100);
+            if (chance >85)
+            {
+                var spawnPosition = this.Owner.Transform.Translation;
+                var archetypeToSpawn = Archetype.Find("Bullet_3");
+                var createdBullet = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
+            }
+            this.Time = 0;
+        }
+    }
+}

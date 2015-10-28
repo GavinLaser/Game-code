@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "Arctype",
+	uint64 LibraryId = 5613f2f85e3e1be0,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "King enemy ship bug free",
+		uint64 ResourceId = 56055942710a9e82,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 315,
+		uint FrameSizeY = 429,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333,
+		float OriginX = 157,
+		float OriginY = 214,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

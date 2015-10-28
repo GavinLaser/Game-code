@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Time_spawner",
+		uint64 ResourceId = 56057ca46131399c,
+	},
+},

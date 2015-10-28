@@ -1,0 +1,31 @@
+class Shield : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.OnKeyDown);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(Zero.Keyboard.KeyIsDown(Keys.L))
+        {
+            this.Owner.Sprite.Visible = true;
+            this.Owner.SphereCollider.SendsEvents = true;
+        }
+        else if(Zero.Keyboard.KeyIsUp(Keys.L))
+        {
+            this.Owner.Sprite.Visible = false;
+            this.Owner.SphereCollider.SendsEvents = false;
+        }
+    }
+        function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if (otherObject.Name == "Bullet_3")
+        {
+            otherObject.Destroy();
+        }
+    }
+}

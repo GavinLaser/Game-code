@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "enemy ship #2",
+		uint64 ResourceId = 561be60b8082855a,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 329,
+		uint FrameSizeY = 379,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333,
+		float OriginX = 164,
+		float OriginY = 189,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

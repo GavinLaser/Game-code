@@ -1,0 +1,25 @@
+class Boss_kill : ZilchComponent
+{
+    var Health : Real = 5.0;
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if (this.Owner.Name == "Boss")
+        {
+            if (otherObject.Name == "Bullet")
+            {
+                this.Health -=1;
+                if (this.Health ==0.0)
+                {
+                    this.Owner.Destroy();
+                }
+            }
+        }
+    }
+}

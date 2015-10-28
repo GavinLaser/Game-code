@@ -1,0 +1,26 @@
+class Interaction_2 : ZilchComponent
+{
+    var Level_One: Level = Level.Find("Level_One");
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if (otherObject.Name == "Player")
+        {
+            this.Space.LoadLevel(this.Level_One);
+        }
+        else if (otherObject.Name == "Bullet")
+        {
+            otherObject.Destroy();
+        }
+        else if (otherObject.Name == "assist")
+        {
+            otherObject.Destroy();
+            this.Owner.Destroy();
+        }
+    }
+}

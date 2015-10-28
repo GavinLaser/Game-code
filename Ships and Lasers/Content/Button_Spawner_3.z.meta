@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Button_Spawner_3",
+		uint64 ResourceId = 561be67873f9c189,
+	},
+},

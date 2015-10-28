@@ -1,0 +1,34 @@
+class Button_Spawner_2 : ZilchComponent
+{
+        var Direction : Real3 = Real3(0,0,0);
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(Zero.Keyboard, Events.KeyDown,this.OnKeyDown);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsDown(Keys.A))
+        {
+            var temp = this.Owner.Transform.Translation;
+            temp.X +=-1;
+            this.Owner.Transform.Translation =temp;
+        }
+        if(Zero.Keyboard.KeyIsDown(Keys.D))
+        {
+            var temp2 = this.Owner.Transform.Translation;
+            temp2.X +=1;
+            this.Owner.Transform.Translation =temp2;
+        }
+    }
+        function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.Up)
+        {
+            var spawnPosition = this.Owner.Transform.Translation;
+            var archetypeToSpawn = Archetype.Find("Bullet_2");
+            var createdBullet = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
+            createdBullet.RigidBody.Velocity = Real3(0,75,0);
+        }
+    }
+}
